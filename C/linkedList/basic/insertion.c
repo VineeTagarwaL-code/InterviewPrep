@@ -105,6 +105,33 @@ struct node *insertBefore(struct node *head, int data, int item)
     printf("item not present in the list \n");
     return head;
 }
+
+void search(struct node *head, int data)
+{
+    int flag = 0;
+    struct node *ptr = head; // Start traversing from the head node
+
+    while (ptr != NULL) // Traverse until the end of the list
+    {
+        if (ptr->info == data)
+        {
+            flag = 1;
+            break;
+        }
+        ptr = ptr->next;
+    }
+
+    if (flag)
+    {
+        printf("Data found!\n");
+    }
+    else
+    {
+        printf("Data not found\n");
+    }
+}
+
+
 int main()
 {
     /*here we are creating a nextedlist having
@@ -125,7 +152,8 @@ int main()
         printf("press 2 for insertion at end\n");
         printf("press 3 for insertion after a node\n");
         printf("press 4 for insertion before a node\n");
-        printf("press 5 for exiting\n");
+        printf("press 5 for searching \n");
+        printf("press 6 for exiting\n");
 
         printf("enter your choice : \n");
         scanf("%d", &choice);
@@ -160,13 +188,19 @@ int main()
             printf("enter your item to be inserted before: \n");
             scanf("%d", &item);
             printf("enter your data to be inserted before the item: \n");
-            
+
             scanf("%d", &data);
             head = insertBefore(head, data, item);
             Traverse(head);
             break;
-
         case 5:
+            printf("enter the item to be searched: \n");
+            scanf("%d", &data);
+            search(head , data);
+            insertBefore(head, data, item);
+            
+            break;
+        case 6:
             exit(0);
 
         default:

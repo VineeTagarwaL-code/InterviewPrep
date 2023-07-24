@@ -22,8 +22,25 @@ struct node *addAtBeg(struct node *head , int data ){
     ptr->info = data;
     ptr->next = head;
     
-   head = ptr;
+    head = ptr;
     return head;
+}
+
+
+struct node * search(struct node *head , data){
+    if(head->info == data){
+        printf("data found");
+    }
+
+        struct node *ptr  = (struct node * ) malloc(sizeof(struct node));
+        while(ptr->next != NULL){
+            if(ptr->info == data){
+                printf("data found!");
+                return data;
+            }
+        }
+        printf("data not found");
+        return head;
 }
 
 

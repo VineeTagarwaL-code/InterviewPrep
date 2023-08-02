@@ -26,3 +26,113 @@ bool hasCycle(struct ListNode *head) {
     }
        return false;
 }
+
+
+q2) calculat the length of linked list cycle 
+
+we just have to find the lenght of linked list cycle , we can use the fast and slow pointer method for this, after fast==slow then we can run the slow pointer one step ahead every iteratin and countit 
+until it meets the fast pointer again 
+
+
+solution:
+
+int lengthOfCycle(struct ListNode *head) {
+    struct ListNode *fast = head ;
+    struct ListNode *slow = head ;
+   int counter=0;
+    while(fast != NULL && fast->next != NULL  ){
+        fast = fast->next->next;
+        slow = slow->next;
+
+        if(fast == slow){
+           
+            counter = 1;
+            slow = slow->next;
+            while(slow == fast){
+                counter++;
+                slow = slow.next;
+            }
+        } 
+    }
+       return counter;
+}
+
+q3) Merge two sorted linked list 
+You are given the heads of two sorted linked lists list1 and list2.
+
+Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
+
+Return the head of the merged linked list
+
+
+solution :
+
+struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
+
+    // check if any list in null 
+
+    if(list1 == NULL ) return list2;
+    if(list2 == NULL ) return list1;
+   
+    // create tmp and head list
+
+    struct ListNode* tmp = NULL;
+    struct ListNode* head = NULL;
+    
+    // list1 or list2 not equal NULL
+
+    while (list1 || list2)
+    {
+        // Get head of new ListNode
+
+        if(tmp == NULL)
+        {
+            if( list1->val < list2->val)
+            {
+                head = list1;
+                tmp = list1;
+                list1 = list1->next;
+            }
+            else{
+                head = list2;
+                tmp = list2;
+                list2 = list2->next;
+            }
+        }
+        // list1 and list2 is true
+
+         else  if( list1 && list2)
+        {
+                if( list1->val < list2->val)
+                    {
+                        tmp->next = list1;
+                        tmp = tmp->next;      
+                        list1 = list1->next;
+                    }
+                    else
+                    {
+                        tmp->next = list2;
+                        tmp = tmp->next;
+                        list2 = list2->next;      
+                    }
+       }
+       // list2 equale NULL and list1 it true
+
+       else if( list1 && list2 == NULL)
+       {
+           tmp->next = list1;
+           break;
+       }
+       // list1 equale NULL and list2 it true
+       else if( list2 && list1 == NULL)
+       {
+           tmp->next = list2;
+           break;
+       }
+    }
+    return head;
+
+}
+
+
+

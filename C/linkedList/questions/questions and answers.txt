@@ -135,4 +135,163 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
 }
 
 
+q4) Linked List Cycle II
+
+Given the head of a linked list, return the node where the cycle begins. If there is no cycle, return null.
+
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to (0-indexed). It is -1 if there is no cycle. Note that pos is not passed as a parameter.
+
+solution :
+
+struct ListNode *detectCycle(struct ListNode *head) {
+    int counter = 0;
+    struct ListNode *fast = head;
+    struct ListNode *slow = head;
+
+    while(fast != NULL && fast->next != NULL){
+        fast = fast->next->next;
+        slow = slow->next;
+
+        if(fast == slow){
+          counter = 1;
+          struct ListNode* tmp = slow->next;
+          while(tmp != slow){
+              counter++;
+              tmp = tmp->next;
+          }
+
+          //step 2;
+
+          struct ListNode* first = head;
+          struct ListNode* second = head;
+
+          while(counter > 0 ){
+              second = second->next;
+              counter--;
+          }
+
+          while(first != second){
+              first = first->next;
+              second = second->next;
+          }
+          return first;
+        }
+    }
+    return NULL;
+}
+
+q5) Happy Number
+
+Write an algorithm to determine if a number n is happy.
+
+A happy number is a number defined by the following process:
+
+Starting with any positive integer, replace the number by the sum of the squares of its digits.
+Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+Those numbers for which this process ends in 1 are happy.
+Return true if n is a happy number, and false if not.
+
+ 
+
+solution :
+
+bool isHappy(int n){
+int fast = n;
+int slow = n;
+
+do{
+slow = square(slow);
+fast = square(square(fast));
+}while(slow != fast);
+
+return slow==1 ;
+
+}
+
+int square(int n ){
+    int ans =0;
+
+    while(n >0){
+     int r = n%10;
+     ans += r*r;
+     n = n/10;
+    }
+    return ans;
+}
+
+q6)
+Middle of the Linked List
+
+Given the head of a singly linked list, return the middle node of the linked list.
+
+If there are two middle nodes, return the second middle node.
+
+solution:
+
+
+struct ListNode* middleNode(struct ListNode* head){
+
+struct ListNode* fast = head;
+struct ListNode* slow = head;
+
+while(fast!= NULL && fast->next != NULL){
+    fast = fast->next->next;
+    slow = slow->next;
+}
+
+return slow;
+
+}
+
+
+
+q7)  Sort List
+
+Given the head of a linked list, return the list after sorting it in ascending order.
+
+solution:
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+struct ListNode* merge(struct ListNode* l1, struct ListNode* l2) {
+    if (l1 == NULL) return l2;
+    if (l2 == NULL) return l1;
+
+    if (l1->val < l2->val) {
+        l1->next = merge(l1->next, l2);
+        return l1;
+    } else {
+        l2->next = merge(l1, l2->next);
+        return l2;
+    }
+}
+
+struct ListNode* sortList(struct ListNode* head) {
+    if (head == NULL || head->next == NULL) {
+        return head;
+    }
+
+    struct ListNode* slow = head;
+    struct ListNode* fast = head;
+    struct ListNode* prev = NULL;
+
+    while (fast != NULL && fast->next != NULL) {
+        prev = slow;
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    prev->next = NULL;
+
+    struct ListNode* l1 = sortList(head);
+    struct ListNode* l2 = sortList(slow);
+
+    return merge(l1, l2);
+}
 

@@ -295,3 +295,125 @@ struct ListNode* sortList(struct ListNode* head) {
     return merge(l1, l2);
 }
 
+
+q8) Reversing a singly linked list
+
+struct ListNode* reverseList(struct ListNode* head){
+ struct ListNode* ptr;
+    struct ListNode* next;
+    struct ListNode* prev;
+prev = NULL;
+ptr = head;
+
+while(ptr != NULL){
+    next = ptr->next;
+    ptr->next = prev;
+    prev = ptr;
+    ptr=next;
+}
+head = prev;
+return head;
+}
+
+
+q9) Palindrome Linked List
+
+
+Given the head of a singly linked list, return true if it is a 
+palindrome
+ or false otherwise.
+
+
+solution:
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+ struct ListNode* middle(struct ListNode* head){
+    struct ListNode* fast = head;
+    struct ListNode* slow = head;
+
+    while(fast != NULL && fast->next != NULL){
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+
+    return slow;
+}
+
+struct ListNode* reverse(struct ListNode* head){
+     struct ListNode* prev;
+     struct ListNode* ptr;
+    struct ListNode* next;
+
+     prev = NULL;
+   ptr = head;
+
+while(ptr != NULL){
+    next = ptr->next;
+    ptr->next = prev;
+    prev = ptr;
+    ptr = next;
+}
+head = prev;
+return head;
+
+}
+
+bool isPalindrome(struct ListNode* head){
+//find the middle of linked list 
+struct ListNode* mid = middle(head);
+//storing the reverse of sub linkedlist [mid , end]
+struct ListNode* secondHead = reverse(mid);
+//storing for re-reversing (origin form) transformation
+struct ListNode* reverseHead = secondHead;
+
+while(head != NULL && secondHead != NULL){
+    if(secondHead->val != head->val){
+       break;
+       
+    }
+        secondHead = secondHead->next;
+        head = head->next;
+}
+reverse(reverseHead);
+if(head == NULL || secondHead == NULL){
+    return true;
+}
+
+return false;
+
+
+
+}
+
+
+q10) reroder linked list
+
+void reorderList(struct ListNode* head){
+   
+   struct ListNode* tmp;
+   struct ListNode* secondHead = middle(head);
+   struct ListNode* hs = reverse(secondHead);
+   struct ListNode* hf = head;
+
+
+   while(hf != NULL && hs != NULL){
+       tmp  = hf->next;
+       hf->next = hs;
+       hf = tmp;
+       tmp = hs->next;
+       hs->next = hf;
+       hs = tmp;
+   }
+
+   if(hf != NULL){
+       hf->next = NULL;
+   }
+ 
+}
+

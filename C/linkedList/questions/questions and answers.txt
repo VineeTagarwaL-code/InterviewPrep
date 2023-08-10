@@ -417,3 +417,36 @@ void reorderList(struct ListNode* head){
  
 }
 
+
+q11)
+Rotate List
+
+Given the head of a linked list, rotate the list to the right by k places.
+
+solution:
+
+struct ListNode* rotateRight(struct ListNode* head, int k){
+
+if(head == NULL || head->next ==NULL || k<=0){
+    return head;
+}
+
+struct ListNode* last = head;
+int length = 1;
+while(last->next != NULL){
+    last = last->next;
+    length++;
+}
+
+last->next = head;
+int rotations = k%length ;
+int skip = length - rotations;
+struct ListNode* newLast = head;
+for(int i = 0 ; i< skip-1 ;i++){
+newLast = newLast->next;
+}
+head = newLast->next;
+newLast->next = NULL;
+
+return head;
+}

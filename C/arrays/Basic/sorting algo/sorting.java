@@ -2,11 +2,33 @@
 import java.util.*;
 class sorting {
     public static void main(String[] args) {
-        int a[] = {5,4,3,2,1};
-        
-  
-        int bubble[]  = selection(a);
-        System.out.print(Arrays.toString(bubble));
+        int a[] = {4,3,2,7,8,2,3,1};
+      
+  Cyclic(a );
+        // int bubble[]  = selecticyclion(a);
+        // System.out.print(Arrays.toString(bubble));
+    }
+
+    static void Cyclic(int arr[] ){
+        int i = 0 ;
+        while(i < arr.length){
+            int correct = arr[i]-1;
+            if(arr[correct] != arr[i]){
+                swap(arr , correct , i);
+
+            }else{
+                i++;
+            }
+        }
+
+        // for(int j = 0 ; j < arr.length ;j++ ){
+        //     if((j+1)!= arr[j]){
+        //         System.out.print(j+1);
+                
+        //     }
+        // }
+        System.out.println();
+        System.out.print("sorted" + Arrays.toString(arr));
     }
     
     static int[] bubble(int a[]){

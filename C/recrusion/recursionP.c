@@ -26,6 +26,7 @@ int countZero(int n , int count ){
     }
     return countZero(n/10 , count);
 }
+
 int search(int arr[], int low, int high, int searchValue)
 {
     if (low > high)
@@ -102,6 +103,34 @@ void concept(int n){
     
 }
 
+
+int rotatedBSearch(int[] arr , int start , int end , int key){
+    if(start > end){
+        return -1;
+    }
+
+    int m = start + (end-start)/2;
+
+    if(arr[mid] == key){
+        return m;
+    }
+
+    if(arr[start] <= arr[mid]){
+        if(key >= arr[start] && key <= arr[m]){
+          return rotatedBSearch(arr , start , m-1 , key);
+        }else{
+           return rotatedBSearch(arr , m+1 , end, key); 
+        }
+    }
+ 
+ if(key >= arr[m] && key<= arr[end] ){
+    return rotatedBSearch(arr , m+1 , end, key);
+ }else{
+      return rotatedBSearch(arr , start , m-1 , key);
+ }
+
+
+}
 // void reverse(int n ){
 //     if(sum == 0 ){
 //         return ;

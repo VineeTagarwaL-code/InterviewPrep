@@ -89,5 +89,21 @@
  * 
  * space complexity = original space  + auxiliary space 
  * 
+ * recursion program dont have constant space complexity !!! (1)
  * 
+ * 1. only calls interlinked with each other will be in the stack at the same
+ * time
+ * 
+ * 2. space complexity = height of the tree path o(n)
+ * 
+ * 
+ */
+
+/*
+ * 
+ * AKRA BAZZI 
+ * 
+ * done in copy - used for solving time complexity of recursive q
+ * 
+ * when p < g(x) , answer is g(x)
  */

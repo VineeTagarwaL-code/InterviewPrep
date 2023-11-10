@@ -106,7 +106,7 @@ class BST {
         // tree.prettyDisplay();
 
         BST tree = new BST();
-        int[] nums = { 5, 2, 7, 1, 4, 6, 9, 8, 3, 10 };
+        int[] nums = { 1,2,3,4,5 };
         tree.populate(nums);
         tree.display();
     }

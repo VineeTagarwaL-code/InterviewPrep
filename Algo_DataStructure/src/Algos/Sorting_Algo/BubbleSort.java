@@ -4,8 +4,8 @@ package Algos.Sorting_Algo;
 // |-----------------------------------------|
 // |  Time Complexity  | Space Complexity    |
 // |-----------------------------------------|
-// | Best  | O(1)      |    NONE             |
-// | Worst | O(Log2N)  |    NONE             |
+// | Best  | O(N)      |    NONE             |
+// | Worst | O(N^2)    |    NONE             |
 // |-----------------------------------------|
 
 
@@ -20,6 +20,8 @@ public class BubbleSort {
             }
         }
     }
+
+
 
     public void swap(int[] arr , int first , int last){
         int temp = arr[first];

@@ -1,4 +1,4 @@
-package Algos.Sorting_Algo;
+package Sorting_Algo;
 
 public class BucketSort {
 }

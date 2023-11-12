@@ -1,4 +1,4 @@
-package Algos.Searching_Algo;
+package Searching_Algo;
 
 
 // |-----------------------------------------|

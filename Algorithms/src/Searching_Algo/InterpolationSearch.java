@@ -1,4 +1,4 @@
-package Algos.Searching_Algo;
+package Searching_Algo;
 // pre-requisites : list have to uniform i.e the items should have the same interval
 // formula : Lo + ((Hi-Lo)/(a[hi] - a[lo])) * (x-a[lo])
 

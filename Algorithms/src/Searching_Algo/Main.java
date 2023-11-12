@@ -1,4 +1,4 @@
-package Algos.Searching_Algo;
+package Searching_Algo;
 
 public class Main {
     public static void main(String[] args) {

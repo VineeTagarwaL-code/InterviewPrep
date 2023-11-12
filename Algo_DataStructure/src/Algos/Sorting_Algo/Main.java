@@ -9,7 +9,11 @@ public class Main {
         BubbleSort BS =  new BubbleSort();
         //BS.BubbleSort(arr  ); // [1, 2, 3, 4, 5]
         SelectionSort SS = new SelectionSort();
-        SS.selection(arr);
+       // SS.selection(arr);  // [1, 2, 3, 4, 5]
+        System.out.println(Arrays.toString(arr));
+
+        InsertionSort IS = new InsertionSort();
+        IS.InsertionSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 }

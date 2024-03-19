@@ -10,15 +10,13 @@ public class Optimal {
         System.out.println(optimal(nums));
     }
 
-
-    // any suggestions ?
-    public static boolean optimal(int[] nums){
-        Set<Integer> setHai = new HashSet<>();
+    public static boolean optimal (int[] nums){
+        Set<Integer> set = new HashSet<>();
         for(int i = 0 ; i < nums.length ; i++){
-            if(setHai.contains(nums[i])){
+            if(set.contains(nums[i])){
                 return true;
             }
-            setHai.add(nums[i]);
+            set.add(nums[i]);
         }
         return false;
     }

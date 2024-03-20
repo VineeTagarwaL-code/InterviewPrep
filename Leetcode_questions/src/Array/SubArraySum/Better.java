@@ -3,7 +3,7 @@ package Array.SubArraySum;
 public class Better {
 
     public static void main(String[] args) {
-        int[] arr = {3, 1, 2, 4};
+        int[] arr = {2,3,5};
         int k = 6;
         System.out.println(subarraySum(arr , 3));
     }

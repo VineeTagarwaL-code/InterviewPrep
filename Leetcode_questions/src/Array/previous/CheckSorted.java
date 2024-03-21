@@ -1,4 +1,4 @@
-package Array;
+package Array.previous;
 //
 public class CheckSorted {
     public static void main(String[] args) {

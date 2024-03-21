@@ -1,4 +1,4 @@
-package Array;
+package Array.previous;
 //https://leetcode.com/problems/valid-anagram/
 import java.util.*;
 public class ValidAnagram {

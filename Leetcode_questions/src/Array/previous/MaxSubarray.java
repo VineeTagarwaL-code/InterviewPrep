@@ -1,4 +1,4 @@
-package Array;
+package Array.previous;
 //https://leetcode.com/problems/maximum-subarray/description/
 public class MaxSubarray {
 

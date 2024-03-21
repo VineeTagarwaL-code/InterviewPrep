@@ -1,5 +1,5 @@
-package Array;
-
+package Array.previous;
+//
 import java.util.*;
 
 //https://leetcode.com/problems/majority-element/description/

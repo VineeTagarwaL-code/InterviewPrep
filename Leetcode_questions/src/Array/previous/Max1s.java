@@ -1,4 +1,5 @@
-package Array;
+package Array.previous;
+//
 
 public class Max1s {
     public static void main(String[] args) {

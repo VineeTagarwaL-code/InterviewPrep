@@ -1,4 +1,4 @@
-package Array;
+package Array.previous;
 //https://leetcode.com/problems/rearrange-array-elements-by-sign/
 import java.util.*;
 public class RearrageSigns {

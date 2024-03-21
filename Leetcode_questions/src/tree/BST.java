@@ -1,3 +1,4 @@
+package tree;
 class BST {
     public class Node {
         private int value;

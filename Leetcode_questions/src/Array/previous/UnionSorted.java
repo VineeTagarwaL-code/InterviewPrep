@@ -1,4 +1,4 @@
-package Array;
+package Array.previous;
 import java.util.*;
 public class UnionSorted {
     public static void main(String[] args) {

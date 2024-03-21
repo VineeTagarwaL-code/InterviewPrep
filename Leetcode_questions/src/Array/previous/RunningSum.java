@@ -1,5 +1,4 @@
-package Array;
-
+package Array.previous;
 import java.util.Arrays;
 
 public class RunningSum {

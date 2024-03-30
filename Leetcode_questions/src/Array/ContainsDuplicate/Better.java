@@ -9,8 +9,7 @@ public class Better {
         boolean result = betterSolution(nums);
         System.out.println(Arrays.toString(nums)  +" " + result);
     }
-
-
+ 
 
 
     public static boolean betterSolution(int[] nums){
@@ -56,13 +55,6 @@ public class Better {
 //     public static boolean better(int[] nums){
 //       sortTheArray(nums);
 //       for(int  i = 0 ; i < nums.length-1 ; i++){
-//           if(nums[i] == nums[i+1]){
-//               return true;
-//           }
-//       }
-//       return false;
-//     }
-
-
+//           if(nu
 
 }
